@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pré-cadastro · Sala de Inglês</title>
+  <meta name="theme-color" content="#fbf7f2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10"/></symbol>
+  <symbol id="i-hw" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-1.6-1.4-4-2-8-2v13c4 0 6.4.6 8 2 1.6-1.4 4-2 8-2V5c-4 0-6.4.6-8 2Zm0 0v13"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 9.8c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5M5 14.2c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M15.5 4.8a3.5 3.5 0 0 1 0 6.4M18 14.4c2.2.8 3.5 2.8 3.5 5.6"/></symbol>
+  <symbol id="i-hwplus" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v5"/><path d="M14 3v5h5M9 12h6M9 16h3M18 16v6M15 19h6"/></symbol>
+  <symbol id="i-userplus" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.5"/><path d="M3 20c0-3.6 2.9-6 6.5-6 1.7 0 3.2.5 4.3 1.4M18.5 14v6M15.5 17h6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></symbol>
+  <symbol id="waves" viewBox="0 0 400 160" preserveAspectRatio="none"><path d="M0 40C70 0 150 20 210 70s120 60 190 30v60H0Z" fill="#ece3f8"/><path d="M0 90c60-30 120-10 190 25s140 20 210-40v85H0Z" fill="#fde4d6" opacity=".8"/><path d="M0 105c50-20 110-15 160 15s70 40 120 40H0Z" fill="#e3d6f5" opacity=".7"/></symbol>
+</svg>
+
+<main class="shell">
+  <header class="topbar">
+    <a class="brand" href="professora.html"><span class="brand-mark">Aa</span><span data-app-name>Sala de Inglês</span></a>
+    <button class="icon-btn" id="logout" type="button"><svg><use href="#i-out"/></svg>Sair</button>
+  </header>
+
+  <div class="page-head">
+    <a class="back" href="professora.html"><svg><use href="#i-back"/></svg>Início</a>
+    <h1 class="page-title">Pré-cadastro de alunos</h1>
+    <p class="hello-sub">Libere o primeiro acesso de cada aluno.</p>
+  </div>
+
+  <div class="two-col">
+    <section class="panel" aria-labelledby="t-new">
+      <h2 id="t-new">Novo convite</h2>
+      <p class="lead">O aluno usa estes dados em “Primeiro acesso” para criar a conta.</p>
+      <form class="form-grid" id="f-invite" novalidate>
+        <div class="field">
+          <label for="i-email">E-mail do aluno</label>
+          <input class="input" id="i-email" type="email" inputmode="email" autocomplete="off" placeholder="aluno@exemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="i-birth">Data de nascimento</label>
+          <input class="input" id="i-birth" type="date" min="1920-01-01" required>
+        </div>
+        <div class="field">
+          <label for="i-level">Nível</label>
+          <select class="input" id="i-level">
+            <option value="">Definir depois</option>
+            <option>Iniciante</option>
+            <option>Básico</option>
+            <option>Intermediário</option>
+            <option>Avançado</option>
+          </select>
+        </div>
+        <div class="alert" id="a-invite" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Cadastrar convite</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="t-list">
+      <div class="list-head">
+        <h2 class="serif" id="t-list">Convites</h2>
+        <div class="chips" role="group" aria-label="Filtrar">
+          <button class="chip" type="button" data-f="todos" aria-pressed="true">Todos</button>
+          <button class="chip" type="button" data-f="pendente" aria-pressed="false">Aguardando</button>
+          <button class="chip" type="button" data-f="ativo" aria-pressed="false">Ativos</button>
+        </div>
+      </div>
+      <input class="input search" id="q" type="search" placeholder="Buscar por e-mail" aria-label="Buscar por e-mail">
+      <div class="invites" id="list"></div>
+      <p class="count" id="count"></p>
+    </section>
+  </div>
+</main>
+
+<div class="waves"><svg><use href="#waves"/></svg></div>
+<script type="module" src="js/convites.js"></script>
+</body>
+</html>
