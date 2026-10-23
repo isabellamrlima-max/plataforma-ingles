@@ -1,5 +1,5 @@
 // Funções compartilhadas por todas as páginas
-import { SUPABASE_URL, SUPABASE_ANON_KEY, APP_NAME } from "./config.js";
+import { SUPABASE_URL, SUPABASE_ANON_KEY, APP_NAME } from "../config.js";
 
 export { APP_NAME };
 export const DEMO = !/^https:\/\/.+\.supabase\.co/.test(SUPABASE_URL) || !SUPABASE_ANON_KEY;

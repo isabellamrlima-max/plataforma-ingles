@@ -4,9 +4,8 @@
 -- Pode rodar de novo sem problema (é idempotente).
 -- ============================================================
 
--- ---------- 1. Pré-cadastro (feito pelo gestor) ----------
--- O gestor insere e-mail + data de nascimento. Ninguém do site lê
--- esta tabela diretamente: só pela função de conferência abaixo.
+-- ---------- 1. Pré-cadastro (feito pela professora) ----------
+-- E-mail + data de nascimento que liberam o primeiro acesso.
 create table if not exists public.pre_cadastro (
   id              bigint generated always as identity primary key,
   email           text not null,
@@ -18,7 +17,6 @@ create table if not exists public.pre_cadastro (
 );
 create unique index if not exists pre_cadastro_email_idx on public.pre_cadastro (lower(email));
 alter table public.pre_cadastro enable row level security;
--- (sem políticas = bloqueado para o site; o gestor usa o painel do Supabase)
 
 -- ---------- 2. Perfis (criados automaticamente no cadastro) ----------
 create table if not exists public.perfis (
@@ -52,6 +50,7 @@ create policy "editar o próprio perfil ou professora edita" on public.perfis
   with check (id = auth.uid() or public.is_professora());
 
 -- Pelo site só dá para mudar estas colunas (papel e e-mail nunca)
+grant select on public.perfis to authenticated;
 revoke update on public.perfis from authenticated, anon;
 grant update (nome, telefone, avatar_url, nivel) on public.perfis to authenticated;
 

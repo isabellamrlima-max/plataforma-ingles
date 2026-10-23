@@ -1,4 +1,4 @@
-import { DEMO, HOME, db, getProfile, store, friendlyError, registerSW, setTitle } from "./core.js";
+import { DEMO, HOME, db, getProfile, store, friendlyError, registerSW, setTitle } from "../lib/core.js";
 
 setTitle("Entrar");
 registerSW();
@@ -85,7 +85,7 @@ $("f-login").addEventListener("submit", async (e) => {
     if (!p) throw new Error("Perfil não encontrado.");
     location.replace(HOME[p.papel]);
   } catch (err) {
-    alertMsg("a-login", err.message === "Perfil não encontrado." ? "Sua conta não tem perfil. Fale com a escola." : friendlyError(err));
+    alertMsg("a-login", err.message === "Perfil não encontrado." ? "Sua conta não tem perfil. Fale com a professora." : friendlyError(err));
     busy(e.target, false);
   }
 });
@@ -108,7 +108,7 @@ $("f-check").addEventListener("submit", async (e) => {
       status = data;
     }
     if (status === "nao_encontrado") {
-      alertMsg("a-check", "Não encontramos um convite com esses dados. Confira o e-mail e a data, ou fale com a escola.");
+      alertMsg("a-check", "Não encontramos um convite com esses dados. Confira o e-mail e a data, ou fale com a professora.");
     } else if (status === "ja_cadastrado") {
       alertMsg("a-check", "Este convite já foi usado. Volte e entre com seu e-mail e senha.");
     } else {

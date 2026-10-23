@@ -1,17 +1,17 @@
 {
-  "name": "Sala de Inglês",
-  "short_name": "Inglês",
-  "description": "Homework, conteúdos e aulas de inglês em um só lugar.",
+  "name": "ISpeak by Isabella",
+  "short_name": "ISpeak",
+  "description": "English learning. More confidence. More opportunities.",
   "lang": "pt-BR",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#fbf7f2",
-  "theme_color": "#fbf7f2",
+  "background_color": "#f5f1eb",
+  "theme_color": "#f5f1eb",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

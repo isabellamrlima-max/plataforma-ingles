@@ -1,4 +1,4 @@
-import { DEMO, db, store, requireRole, logout, toast, friendlyError, registerSW, setTitle } from "./core.js";
+import { DEMO, db, store, requireRole, logout, toast, friendlyError, registerSW, setTitle } from "../lib/core.js";
 
 setTitle("Pré-cadastro");
 registerSW();
@@ -78,7 +78,7 @@ function render() {
             <small>${i.nome ? esc(i.email) + " · " : ""}Nasc. ${fmtDate(i.data_nascimento)}${i.nivel ? " · " + esc(i.nivel) : ""}</small>
           </div>
           <span class="status ${active ? "active" : "pending"}">${active ? "Conta ativa" : "Aguardando"}</span>
-          ${active ? "" : `<button class="del" type="button" data-del="${i.id}" aria-label="Apagar convite de ${esc(i.email)}"><svg><use href="#i-trash"/></svg></button>`}
+          ${active ? "" : `<button class="del" type="button" data-del="${i.id}" aria-label="Apagar convite de ${esc(i.email)}"><svg><use href="assets/icons/sprite.svg#trash"/></svg></button>`}
         </div>`;
       }).join("")
     : `<div class="empty"><strong>${all.length ? "Nada encontrado" : "Nenhum convite ainda"}</strong>${all.length ? "Tente outro filtro ou busca." : "Cadastre o primeiro aluno ao lado."}</div>`;

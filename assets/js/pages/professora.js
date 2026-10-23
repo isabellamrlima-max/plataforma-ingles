@@ -1,4 +1,4 @@
-import { DEMO, db, requireRole, logout, initials, bindSoon, registerSW, setTitle } from "./core.js";
+import { DEMO, db, requireRole, logout, initials, bindSoon, registerSW, setTitle } from "../lib/core.js";
 
 setTitle("Área da professora");
 registerSW();
@@ -19,7 +19,7 @@ if (p) {
   const box = document.getElementById("agenda");
   box.innerHTML = DEMO
     ? `<div class="agenda">${demo
-        .map((a) => `<a class="row-card" href="#" data-soon="Aula"><strong>${a.hora}</strong><span>${a.aluno} • ${a.turma}</span><svg class="chev"><use href="#i-chev"/></svg></a>`)
+        .map((a) => `<a class="row-card" href="#" data-soon="Aula"><strong>${a.hora}</strong><span>${a.aluno} • ${a.turma}</span><svg class="chev"><use href="assets/icons/sprite.svg#chev"/></svg></a>`)
         .join("")}</div>`
     : `<div class="empty"><strong>Agenda livre hoje</strong>As aulas do dia aparecem aqui.</div>`;
   bindSoon();

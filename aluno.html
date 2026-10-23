@@ -3,62 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Área do aluno · Sala de Inglês</title>
-  <meta name="theme-color" content="#fbf7f2">
+  <title>Área do aluno · ISpeak</title>
+  <meta name="description" content="ISpeak by Isabella — English learning. More confidence. More opportunities.">
+  <meta name="theme-color" content="#f5f1eb">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="apple-mobile-web-app-title" content="ISpeak">
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body class="is-loading">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
-  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10"/></symbol>
-  <symbol id="i-hw" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-1.6-1.4-4-2-8-2v13c4 0 6.4.6 8 2 1.6-1.4 4-2 8-2V5c-4 0-6.4.6-8 2Zm0 0v13"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
-  <symbol id="i-coins" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 9.8c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5M5 14.2c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></symbol>
-  <symbol id="waves" viewBox="0 0 400 160" preserveAspectRatio="none"><path d="M0 40C70 0 150 20 210 70s120 60 190 30v60H0Z" fill="#ece3f8"/><path d="M0 90c60-30 120-10 190 25s140 20 210-40v85H0Z" fill="#fde4d6" opacity=".8"/><path d="M0 105c50-20 110-15 160 15s70 40 120 40H0Z" fill="#e3d6f5" opacity=".7"/></symbol>
-</svg>
-
 <main class="shell">
   <header class="topbar">
-    <a class="brand" href="aluno.html"><span class="brand-mark">Aa</span><span data-app-name>Sala de Inglês</span></a>
-    <button class="icon-btn" id="logout" type="button"><svg><use href="#i-out"/></svg>Sair</button>
+    <a class="logo" href="aluno.html" aria-label="ISpeak by Isabella — início"><span class="logo-word">ISpeak</span><span class="logo-by">by Isabella</span></a>
+    <button class="icon-btn" id="logout" type="button"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#out"/></svg>Sair</button>
   </header>
 
   <div class="dash">
     <div>
       <div class="greet">
         <h1 class="hello">Olá, <span id="nome">aluno</span>!</h1>
-        <p class="hello-sub">Vamos praticar inglês?</p>
+        <p class="hello-sub">Ready to practice today?</p>
       </div>
-
       <nav class="tiles" aria-label="Menu do aluno">
         <a class="tile" href="#" data-soon="Homework">
-          <span class="bubble peach"><svg><use href="#i-hw"/></svg></span>
-          <span class="tile-foot"><span class="tile-label">Homework</span><svg class="chev"><use href="#i-chev"/></svg></span>
+          <span class="bubble blush"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#homework"/></svg></span>
+          <span class="tile-foot"><span class="tile-label">Homework</span><svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg></span>
         </a>
         <a class="tile" href="#" data-soon="Conteúdos">
-          <span class="bubble lav"><svg><use href="#i-book"/></svg></span>
-          <span class="tile-foot"><span class="tile-label">Conteúdos</span><svg class="chev"><use href="#i-chev"/></svg></span>
+          <span class="bubble taupe"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#book"/></svg></span>
+          <span class="tile-foot"><span class="tile-label">Conteúdos</span><svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg></span>
         </a>
         <a class="tile" href="#" data-soon="Faltas/Presença">
-          <span class="bubble peach"><svg><use href="#i-cal"/></svg></span>
-          <span class="tile-foot"><span class="tile-label">Faltas/<wbr>Presença</span><svg class="chev"><use href="#i-chev"/></svg></span>
+          <span class="bubble taupe"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#calendar"/></svg></span>
+          <span class="tile-foot"><span class="tile-label">Faltas/<wbr>Presença</span><svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg></span>
         </a>
         <a class="tile" href="#" data-soon="Financeiro">
-          <span class="bubble lav"><svg><use href="#i-coins"/></svg></span>
-          <span class="tile-foot"><span class="tile-label">Financeiro</span><svg class="chev"><use href="#i-chev"/></svg></span>
+          <span class="bubble blush"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#coins"/></svg></span>
+          <span class="tile-foot"><span class="tile-label">Financeiro</span><svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg></span>
         </a>
         <a class="tile wide" href="#" data-soon="Perfil">
           <span class="avatar" id="avatar">A</span>
           <span class="tile-label">Perfil</span>
-          <svg class="chev"><use href="#i-chev"/></svg>
+          <svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg>
         </a>
       </nav>
     </div>
@@ -66,14 +56,16 @@
     <section class="side" aria-labelledby="t-next">
       <div class="side-head">
         <h2 class="section-title" id="t-next">Próxima aula</h2>
-        <a class="link-more" href="#" data-soon="Aulas">Ver todas <svg class="chev"><use href="#i-chev"/></svg></a>
+        <a class="link-more" href="#" data-soon="Aulas">Ver todas <svg class="chev" aria-hidden="true"><use href="assets/icons/sprite.svg#chev"/></svg></a>
       </div>
       <div id="next-lesson"></div>
     </section>
   </div>
+  <footer class="foot">
+    <p class="tagline">A new language opens new doors.</p>
+    <span class="eyebrow">ISpeak by Isabella</span>
+  </footer>
 </main>
-
-<div class="waves"><svg><use href="#waves"/></svg></div>
-<script type="module" src="js/aluno.js"></script>
+<script type="module" src="assets/js/pages/aluno.js"></script>
 </body>
 </html>

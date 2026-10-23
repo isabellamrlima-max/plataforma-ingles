@@ -1,4 +1,4 @@
-import { DEMO, HOME, db, getProfile, friendlyError, setTitle } from "./core.js";
+import { DEMO, HOME, db, getProfile, friendlyError, setTitle } from "../lib/core.js";
 
 setTitle("Nova senha");
 const $ = (id) => document.getElementById(id);

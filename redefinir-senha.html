@@ -3,33 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Nova senha · Sala de Inglês</title>
-  <meta name="description" content="Plataforma de inglês para alunos e professora.">
-  <meta name="theme-color" content="#fbf7f2">
+  <title>Nova senha · ISpeak</title>
+  <meta name="description" content="ISpeak by Isabella — English learning. More confidence. More opportunities.">
+  <meta name="theme-color" content="#f5f1eb">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="apple-mobile-web-app-title" content="ISpeak">
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
-  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></symbol>
-  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
-  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M17 6l2.5 2.5M14.5 8.5 16.5 10.5"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
-  <symbol id="waves" viewBox="0 0 400 160" preserveAspectRatio="none"><path d="M0 40C70 0 150 20 210 70s120 60 190 30v60H0Z" fill="#ece3f8"/><path d="M0 90c60-30 120-10 190 25s140 20 210-40v85H0Z" fill="#fde4d6" opacity=".8"/><path d="M0 105c50-20 110-15 160 15s70 40 120 40H0Z" fill="#e3d6f5" opacity=".7"/></symbol>
-</svg>
-
 <div class="auth">
   <main class="auth-main" style="justify-content:center">
-    <span class="brand" style="display:flex"><span class="brand-mark">Aa</span><span data-app-name>Sala de Inglês</span></span>
+    <div class="auth-brand" style="display:flex">
+      <span class="logo lg"><span class="logo-word">ISpeak</span><span class="logo-by">by Isabella</span></span>
+      <hr class="rule">
+      <span class="eyebrow">English learning</span>
+    </div>
     <section class="view">
       <h1 class="auth-title">Crie uma nova senha</h1>
       <p class="auth-sub">Escolha uma senha com pelo menos 8 caracteres.</p>
@@ -37,21 +30,20 @@
         <div class="field">
           <label for="n-pass">Nova senha</label>
           <div class="input-wrap">
-            <input class="input" id="n-pass" type="password" autocomplete="new-password" minlength="8" required>
-            <button class="peek" type="button" aria-label="Mostrar senha" data-peek="n-pass"><svg><use href="#i-eye"/></svg></button>
+            <input class="input" id="n-pass" type="password" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" minlength="8" required>
+            <button class="peek" type="button" aria-label="Mostrar senha" data-peek="n-pass"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#eye"/></svg></button>
           </div>
         </div>
         <div class="field">
           <label for="n-pass2">Confirme a nova senha</label>
-          <input class="input" id="n-pass2" type="password" autocomplete="new-password" required>
+          <input class="input" id="n-pass2" type="password" autocomplete="new-password" placeholder="Repita a senha" required>
         </div>
         <div class="alert" id="a-reset" role="alert"></div>
         <button class="btn btn-primary" type="submit">Salvar nova senha</button>
       </form>
     </section>
   </main>
-  <div class="waves" style="display:block"><svg><use href="#waves"/></svg></div>
 </div>
-<script type="module" src="js/redefinir.js"></script>
+<script type="module" src="assets/js/pages/redefinir.js"></script>
 </body>
 </html>

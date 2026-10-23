@@ -1,11 +1,34 @@
 // Service worker: permite instalar o app e abrir as telas sem internet.
 // Ao publicar uma versão nova, aumente o número abaixo.
-const CACHE = "sala-ingles-v2";
+const CACHE = "ispeak-v3";
 const SHELL = [
-  "./", "index.html", "aluno.html", "professora.html", "redefinir-senha.html", "convites.html",
-  "css/style.css", "js/config.js", "js/core.js", "js/login.js", "js/aluno.js",
-  "js/professora.js", "js/redefinir.js", "js/convites.js", "manifest.webmanifest",
-  "icons/icon-192.png", "icons/icon-512.png",
+  "./",
+  "index.html",
+  "aluno.html",
+  "professora.html",
+  "convites.html",
+  "redefinir-senha.html",
+  "manifest.webmanifest",
+  "assets/icons/icon-192.png",
+  "assets/icons/icon-512.png",
+  "assets/icons/sprite.svg",
+  "assets/fonts/bodoni-moda-latin-400-italic.woff2",
+  "assets/fonts/bodoni-moda-latin-400-normal.woff2",
+  "assets/fonts/bodoni-moda-latin-500-italic.woff2",
+  "assets/fonts/bodoni-moda-latin-500-normal.woff2",
+  "assets/fonts/bodoni-moda-latin-600-normal.woff2",
+  "assets/fonts/jost-latin-300-normal.woff2",
+  "assets/fonts/jost-latin-400-normal.woff2",
+  "assets/fonts/jost-latin-500-normal.woff2",
+  "assets/css/app.css",
+  "assets/css/brand.css",
+  "assets/js/config.js",
+  "assets/js/lib/core.js",
+  "assets/js/pages/aluno.js",
+  "assets/js/pages/convites.js",
+  "assets/js/pages/login.js",
+  "assets/js/pages/professora.js",
+  "assets/js/pages/redefinir.js",
 ];
 
 self.addEventListener("install", (e) => {
