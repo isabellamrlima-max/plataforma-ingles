@@ -72,11 +72,13 @@ const resumo = (h) => ({ id: h.id, titulo: h.titulo, nivel: h.nivel, conteudo: h
 export async function listarTodos() {
   if (DEMO) return demoAll().map(resumo).sort((a, b) => b.atualizado_em.localeCompare(a.atualizado_em));
   const sb = await db();
-  const { data, error } = await sb.from("homeworks")
-    .select("id,titulo,nivel,conteudo,instrucoes,publicado,atualizado_em,questoes(count)")
-    .order("atualizado_em", { ascending: false });
+  const [{ data, error }, contagem] = await Promise.all([
+    sb.from("homeworks").select("id,titulo,nivel,conteudo,instrucoes,publicado,atualizado_em")
+      .order("atualizado_em", { ascending: false }),
+    contarQuestoes(sb),
+  ]);
   if (error) throw error;
-  return data.map((h) => ({ ...h, total: h.questoes?.[0]?.count ?? 0 }));
+  return data.map((h) => ({ ...h, total: contagem[h.id] || 0 }));
 }
 
 /** Professora: homework completo, com gabarito (para editar). */
@@ -155,6 +157,15 @@ export async function enviarImagem(file) {
   return sb.storage.from("homework").getPublicUrl(path).data.publicUrl;
 }
 
+// Conta questões por homework (lê só a coluna homework_id — o gabarito continua protegido)
+async function contarQuestoes(sb) {
+  const { data, error } = await sb.from("questoes").select("homework_id");
+  if (error) throw error;
+  const out = {};
+  data.forEach((q) => { out[q.homework_id] = (out[q.homework_id] || 0) + 1; });
+  return out;
+}
+
 // ---------- Aluno ----------
 
 /** Aluno: homeworks publicados (todos os níveis) + minhas últimas notas. */
@@ -164,15 +175,16 @@ export async function listarPublicados() {
     return demoAll().filter((h) => h.publicado).map((h) => ({ ...resumo(h), entrega: ent.find((e) => e.homework_id === h.id) || null }));
   }
   const sb = await db();
-  const [{ data: hs, error }, { data: ents }] = await Promise.all([
-    sb.from("homeworks").select("id,titulo,nivel,conteudo,instrucoes,publicado,atualizado_em,questoes(count)")
+  const [{ data: hs, error }, { data: ents }, contagem] = await Promise.all([
+    sb.from("homeworks").select("id,titulo,nivel,conteudo,instrucoes,publicado,atualizado_em")
       .eq("publicado", true).order("conteudo").order("titulo"),
     sb.from("entregas").select("homework_id,nota,pendente_correcao,nota_professora,enviado_em").order("enviado_em", { ascending: false }),
+    contarQuestoes(sb),
   ]);
   if (error) throw error;
   const last = {};
   (ents || []).forEach((e) => { if (!last[e.homework_id]) last[e.homework_id] = e; });
-  return hs.map((h) => ({ ...h, total: h.questoes?.[0]?.count ?? 0, entrega: last[h.id] || null }));
+  return hs.map((h) => ({ ...h, total: contagem[h.id] || 0, entrega: last[h.id] || null }));
 }
 
 /** Aluno: um homework para fazer (sem gabarito). */

@@ -1,6 +1,6 @@
 // Service worker: permite instalar o app e abrir as telas sem internet.
 // Ao publicar uma versão nova, aumente o número abaixo.
-const CACHE = "ispeak-v5";
+const CACHE = "ispeak-v7";
 const SHELL = [
   "./",
   "aluno-homework-fazer.html",

@@ -127,6 +127,7 @@ let stream = null;
 
 async function openCamera() {
   if (isTouch || !navigator.mediaDevices?.getUserMedia) return $("file-camera").click();
+  // computador: webcam numa janela
   const dlg = $("cam");
   $("cam-msg").textContent = "Permita o acesso à câmera no navegador.";
   dlg.showModal();
@@ -153,9 +154,21 @@ if (p) {
   paint();
   fillForm();
 
-  $("btn-camera").addEventListener("click", openCamera);
-  $("btn-upload").addEventListener("click", () => $("file-upload").click());
-  $("btn-remove").addEventListener("click", removePhoto);
+  // Botão da câmera na foto → menu com as opções
+  const menu = $("photo-menu");
+  const badge = $("btn-photo");
+  const setMenu = (open) => {
+    menu.hidden = !open;
+    badge.setAttribute("aria-expanded", open);
+    if (open) menu.querySelector("button:not([hidden])").focus();
+  };
+  badge.addEventListener("click", (e) => { e.stopPropagation(); setMenu(menu.hidden); });
+  document.addEventListener("click", (e) => { if (!menu.hidden && !menu.contains(e.target)) setMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { setMenu(false); badge.focus(); } });
+  const pick = (fn) => () => { setMenu(false); fn(); };
+  $("btn-camera").addEventListener("click", pick(openCamera));
+  $("btn-upload").addEventListener("click", pick(() => $("file-upload").click()));
+  $("btn-remove").addEventListener("click", pick(removePhoto));
   ["file-camera", "file-upload"].forEach((id) =>
     $(id).addEventListener("change", (e) => {
       const f = e.target.files?.[0];

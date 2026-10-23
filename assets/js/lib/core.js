@@ -127,7 +127,11 @@ export function friendlyError(err) {
   if (m.includes("password") && m.includes("6")) return "A senha precisa ter pelo menos 8 caracteres.";
   if (m.includes("rate limit") || m.includes("too many")) return "Muitas tentativas. Aguarde alguns minutos e tente de novo.";
   if (m.includes("fetch") || m.includes("network")) return "Sem conexão. Verifique sua internet.";
-  return "Algo deu errado. Tente novamente.";
+  if (m.includes("permission denied") || m.includes("row-level security")) return "Sem permissão para isso. Entre novamente ou fale com a professora.";
+  if (m.includes("does not exist") || m.includes("could not find")) return "O banco ainda não está pronto: rode os scripts do Supabase em ordem (01, 02, 03).";
+  // mostra o detalhe técnico para facilitar o suporte
+  const detail = err?.message ? ` (${String(err.message).slice(0, 90)})` : "";
+  return `Algo deu errado. Tente novamente.${detail}`;
 }
 
 export function registerSW() {

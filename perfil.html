@@ -34,12 +34,13 @@
       <div class="profile-photo">
         <span class="avatar xl" id="avatar"></span>
         <span class="photo-busy" id="photo-busy" hidden><span class="spin"></span></span>
+        <button class="photo-badge" type="button" id="btn-photo" aria-haspopup="menu" aria-expanded="false" aria-controls="photo-menu" aria-label="Alterar foto de perfil"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#camera"/></svg></button>
+        <div class="photo-menu" id="photo-menu" role="menu" hidden>
+          <button type="button" role="menuitem" id="btn-camera"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#camera"/></svg>Tirar foto</button>
+          <button type="button" role="menuitem" id="btn-upload"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#image"/></svg>Escolher da galeria</button>
+          <button type="button" role="menuitem" class="danger" id="btn-remove" hidden><svg aria-hidden="true"><use href="assets/icons/sprite.svg#trash"/></svg>Remover foto</button>
+        </div>
       </div>
-      <div class="photo-actions">
-        <button class="btn btn-soft sm" type="button" id="btn-camera"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#camera"/></svg>Tirar foto</button>
-        <button class="btn btn-soft sm" type="button" id="btn-upload"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#image"/></svg>Enviar foto</button>
-      </div>
-      <button class="text-link" type="button" id="btn-remove" hidden>Remover foto</button>
       <input type="file" id="file-camera" accept="image/*" capture="user" hidden>
       <input type="file" id="file-upload" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" hidden>
 
