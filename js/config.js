@@ -7,5 +7,5 @@
 
 export const APP_NAME = "Sala de Inglês"; // nome provisório
 
-export const SUPABASE_URL = "";      // ex.: "https://abcdefgh.supabase.co"
-export const SUPABASE_ANON_KEY = ""; // ex.: "eyJhbGciOi..."
+export const SUPABASE_URL = "https://uqiavsjujuuhexkchpxo.supabase.co";
+export const SUPABASE_ANON_KEY = "sb_publishable_lRNuO24dGsQCQy6eaPp2cQ_Ql_pQLm5";
