@@ -1,13 +1,11 @@
-import { DEMO, db, requireRole, logout, initials, bindSoon, registerSW, setTitle } from "../lib/core.js";
+import { DEMO, db, requireRole, logout, renderAvatar, bindSoon, registerSW, setTitle } from "../lib/core.js";
 
 setTitle("Área da professora");
 registerSW();
 
 const p = await requireRole("professora");
 if (p) {
-  const av = document.getElementById("avatar");
-  if (p.avatar_url) av.innerHTML = `<img src="${encodeURI(p.avatar_url)}" alt="">`;
-  else av.textContent = initials(p.nome);
+  renderAvatar(document.getElementById("avatar"), p);
 
   document.getElementById("logout").addEventListener("click", logout);
 

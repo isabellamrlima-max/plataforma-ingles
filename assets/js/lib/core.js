@@ -27,15 +27,30 @@ export const store = {
 };
 
 const DEMO_PROFILES = {
-  aluno: { nome: "Ana Souza", papel: "aluno", nivel: "Intermediário", email: "ana@exemplo.com" },
-  professora: { nome: "Professora", papel: "professora", email: "prof@exemplo.com" },
+  aluno: { id: "demo-aluno", nome: "Ana Souza", papel: "aluno", nivel: "Intermediário", email: "ana@exemplo.com",
+           telefone: "(11) 98765-4321", data_nascimento: "2008-03-15", criado_em: "2026-09-02T12:00:00Z" },
+  professora: { id: "demo-prof", nome: "Isabella Lima", papel: "professora", email: "isabella@exemplo.com",
+                telefone: "(11) 91234-5678", data_nascimento: "1995-06-10", criado_em: "2026-08-15T12:00:00Z" },
 };
+const demoKey = (papel) => `demo_perfil_${papel}`;
+
+/** Modo demonstração: grava alterações do perfil só neste navegador. */
+export function saveDemoProfile(papel, changes) {
+  let cur = {};
+  try { cur = JSON.parse(store.get(demoKey(papel))) || {}; } catch {}
+  store.set(demoKey(papel), JSON.stringify({ ...cur, ...changes }));
+}
+
+export const PAPEL_LABEL = { aluno: "Aluno(a)", professora: "Professor(a)" };
 
 /** Perfil do usuário logado, ou null. */
 export async function getProfile() {
   if (DEMO) {
     const papel = store.get("demo_papel");
-    return papel ? DEMO_PROFILES[papel] : null;
+    if (!papel) return null;
+    let extra = {};
+    try { extra = JSON.parse(store.get(demoKey(papel))) || {}; } catch {}
+    return { ...DEMO_PROFILES[papel], ...extra };
   }
   const sb = await db();
   const { data: { session } } = await sb.auth.getSession();
@@ -44,11 +59,12 @@ export async function getProfile() {
   return error ? null : data;
 }
 
-/** Protege uma página: só deixa entrar quem tem o papel certo. */
+/** Protege uma página: só deixa entrar quem tem o papel certo
+ *  (sem papel = qualquer usuário logado). */
 export async function requireRole(papel) {
   const p = await getProfile();
   if (!p) { location.replace("index.html"); return null; }
-  if (p.papel !== papel) { location.replace(HOME[p.papel] || "index.html"); return null; }
+  if (papel && p.papel !== papel) { location.replace(HOME[p.papel] || "index.html"); return null; }
   document.body.classList.remove("is-loading");
   return p;
 }
@@ -57,6 +73,20 @@ export async function logout() {
   if (DEMO) store.del("demo_papel");
   else await (await db()).auth.signOut();
   location.replace("index.html");
+}
+
+/** Mostra a foto do perfil (ou as iniciais) dentro de um elemento. */
+export function renderAvatar(el, p) {
+  el.textContent = "";
+  if (p?.avatar_url) {
+    const img = document.createElement("img");
+    img.alt = "";
+    img.src = p.avatar_url;
+    img.onerror = () => { el.textContent = initials(p.nome); };
+    el.appendChild(img);
+  } else {
+    el.textContent = initials(p?.nome);
+  }
 }
 
 export function firstName(nome = "") { return nome.trim().split(/\s+/)[0] || ""; }

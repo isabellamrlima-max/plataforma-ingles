@@ -1,4 +1,4 @@
-import { DEMO, requireRole, logout, firstName, initials, bindSoon, registerSW, setTitle } from "../lib/core.js";
+import { DEMO, requireRole, logout, firstName, renderAvatar, bindSoon, registerSW, setTitle } from "../lib/core.js";
 
 setTitle("Área do aluno");
 registerSW();
@@ -6,9 +6,7 @@ registerSW();
 const p = await requireRole("aluno");
 if (p) {
   document.getElementById("nome").textContent = firstName(p.nome) || "aluno";
-  const av = document.getElementById("avatar");
-  if (p.avatar_url) av.innerHTML = `<img src="${encodeURI(p.avatar_url)}" alt="">`;
-  else av.textContent = initials(p.nome);
+  renderAvatar(document.getElementById("avatar"), p);
 
   document.getElementById("logout").addEventListener("click", logout);
 

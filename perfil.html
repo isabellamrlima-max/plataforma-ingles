@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meu perfil · ISpeak</title>
+  <meta name="description" content="ISpeak by Isabella — English learning. More confidence. More opportunities.">
+  <meta name="theme-color" content="#f5f1eb">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ISpeak">
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="is-loading">
+<main class="shell">
+  <header class="topbar">
+    <a class="logo" href="index.html" data-home aria-label="ISpeak by Isabella — início"><span class="logo-word">ISpeak</span><span class="logo-by">by Isabella</span></a>
+    <button class="icon-btn" id="logout" type="button"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#out"/></svg>Sair</button>
+  </header>
+
+  <div class="page-head">
+    <a class="back" href="index.html" data-home><svg aria-hidden="true"><use href="assets/icons/sprite.svg#back"/></svg>Início</a>
+    <h1 class="page-title">Meu perfil</h1>
+    <p class="hello-sub">Mantenha seus dados sempre atualizados.</p>
+  </div>
+
+  <div class="profile">
+    <!-- Cartão com foto e resumo -->
+    <section class="panel profile-card" aria-label="Resumo do perfil">
+      <div class="profile-photo">
+        <span class="avatar xl" id="avatar"></span>
+        <span class="photo-busy" id="photo-busy" hidden><span class="spin"></span></span>
+      </div>
+      <div class="photo-actions">
+        <button class="btn btn-soft sm" type="button" id="btn-camera"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#camera"/></svg>Tirar foto</button>
+        <button class="btn btn-soft sm" type="button" id="btn-upload"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#image"/></svg>Enviar foto</button>
+      </div>
+      <button class="text-link" type="button" id="btn-remove" hidden>Remover foto</button>
+      <input type="file" id="file-camera" accept="image/*" capture="user" hidden>
+      <input type="file" id="file-upload" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" hidden>
+
+      <h2 class="profile-name" id="p-name">—</h2>
+      <span class="eyebrow" id="p-role">—</span>
+      <hr class="rule">
+      <dl class="facts">
+        <div><dt>Nível</dt><dd id="p-level">—</dd></div>
+        <div><dt>Membro desde</dt><dd id="p-since">—</dd></div>
+      </dl>
+    </section>
+
+    <!-- Dados do cadastro -->
+    <section class="panel" aria-labelledby="t-data">
+      <h2 id="t-data">Dados do cadastro</h2>
+      <p class="lead">Confira e atualize suas informações.</p>
+      <form class="form" id="f-profile" novalidate>
+        <div class="field">
+          <label for="f-name">Nome completo</label>
+          <input class="input" id="f-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-birth">Data de nascimento</label>
+            <input class="input" id="f-birth" type="date" min="1920-01-01" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Telefone (WhatsApp)</label>
+            <input class="input" id="f-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">E-mail cadastrado</label>
+          <div class="input-wrap">
+            <input class="input" id="f-email" type="email" readonly aria-describedby="h-email">
+            <span class="lock"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#lock"/></svg></span>
+          </div>
+          <small class="hint" id="h-email">O e-mail não pode ser alterado.</small>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-role">Tipo de usuário</label>
+            <div class="input-wrap">
+              <input class="input" id="f-role" type="text" readonly>
+              <span class="lock"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#lock"/></svg></span>
+            </div>
+          </div>
+          <div class="field" id="level-field">
+            <label for="f-level">Nível</label>
+            <div class="input-wrap">
+              <input class="input" id="f-level" type="text" readonly aria-describedby="h-level">
+              <span class="lock"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#lock"/></svg></span>
+            </div>
+            <small class="hint" id="h-level">Definido pela professora.</small>
+          </div>
+        </div>
+        <div class="alert" id="a-profile" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Atualizar cadastro</button>
+      </form>
+    </section>
+  </div>
+  <footer class="foot">
+    <p class="tagline">A new language opens new doors.</p>
+    <span class="eyebrow">ISpeak by Isabella</span>
+  </footer>
+</main>
+
+<!-- Câmera (computador) -->
+<dialog class="cam" id="cam">
+  <div class="cam-box">
+    <video id="cam-video" autoplay playsinline muted></video>
+    <p class="cam-msg" id="cam-msg"></p>
+    <div class="cam-actions">
+      <button class="btn btn-soft" type="button" id="cam-cancel">Cancelar</button>
+      <button class="btn btn-primary" type="button" id="cam-shot"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#camera"/></svg>Capturar</button>
+    </div>
+  </div>
+</dialog>
+<script type="module" src="assets/js/pages/perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Editor de homework · ISpeak</title>
+  <meta name="description" content="ISpeak by Isabella — English learning. More confidence. More opportunities.">
+  <meta name="theme-color" content="#f5f1eb">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ISpeak">
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="is-loading">
+<main class="shell editor">
+  <header class="topbar">
+    <a class="logo" href="professora.html" aria-label="ISpeak by Isabella — início"><span class="logo-word">ISpeak</span><span class="logo-by">by Isabella</span></a>
+    <button class="icon-btn" id="logout" type="button"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#out"/></svg>Sair</button>
+  </header>
+
+  <div class="page-head">
+    <a class="back" href="prof-homework.html"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#back"/></svg>Homework</a>
+    <h1 class="page-title" id="ed-title">Novo homework</h1>
+    <p class="hello-sub">Monte a atividade e adicione as questões.</p>
+  </div>
+
+  <section class="panel" aria-labelledby="t-meta">
+    <h2 id="t-meta">Informações</h2>
+    <p class="lead">O aluno encontra o homework pelo nível e pelo conteúdo.</p>
+    <div class="form">
+      <div class="field">
+        <label for="m-titulo">Título</label>
+        <input class="input" id="m-titulo" type="text" placeholder="Ex.: My Daily Routine" maxlength="120">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="m-nivel">Nível</label>
+          <select class="input" id="m-nivel"><option>Iniciante</option><option>Básico</option><option>Intermediário</option><option>Avançado</option></select>
+        </div>
+        <div class="field">
+          <label for="m-conteudo">Conteúdo</label>
+          <input class="input" id="m-conteudo" type="text" list="conteudos" placeholder="Ex.: Unit 4 – Daily Routine" maxlength="120">
+          <datalist id="conteudos"></datalist>
+        </div>
+      </div>
+      <div class="field">
+        <label for="m-inst">Instruções para o aluno <span class="opt-label">(opcional)</span></label>
+        <textarea class="input textarea" id="m-inst" rows="2" placeholder="Ex.: Read each question carefully."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="list-head q-list-head">
+    <h2>Questões <span class="count-badge" id="q-count">0</span></h2>
+  </div>
+  <div class="q-editor-list" id="questions"></div>
+  <button class="add-q" type="button" id="add-q"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg>Adicionar questão</button>
+
+  <div class="savebar">
+    <span class="savebar-status" id="status">Rascunho</span>
+    <div class="savebar-actions">
+      <button class="btn btn-soft" type="button" id="btn-preview"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#eye"/></svg><span>Prévia</span></button>
+      <button class="btn btn-soft" type="button" id="btn-save">Salvar</button>
+      <button class="btn btn-primary" type="button" id="btn-publish">Publicar</button>
+    </div>
+  </div>
+</main>
+
+<dialog class="sheet" id="type-picker" aria-labelledby="tp-title">
+  <div class="sheet-head"><h2 id="tp-title">Tipo de questão</h2><button class="icon-x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#x"/></svg></button></div>
+  <div class="type-grid" id="type-grid"></div>
+</dialog>
+
+<dialog class="sheet wide" id="preview" aria-labelledby="pv-title">
+  <div class="sheet-head"><div><span class="eyebrow">Prévia do aluno</span><h2 id="pv-title">—</h2></div><button class="icon-x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="assets/icons/sprite.svg#x"/></svg></button></div>
+  <div class="pv-body" id="pv-body"></div>
+  <div class="sheet-foot"><span class="hint">Responda para testar o gabarito. Nada é salvo.</span><button class="btn btn-primary" type="button" id="pv-check">Testar correção</button></div>
+</dialog>
+
+<input type="file" id="img-input" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" hidden>
+<script type="module" src="assets/js/pages/prof-homework-editor.js"></script>
+</body>
+</html>
