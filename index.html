@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Entrar · Sala de Inglês</title>
+  <meta name="description" content="Plataforma de inglês para alunos e professora.">
+  <meta name="theme-color" content="#fbf7f2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M17 6l2.5 2.5M14.5 8.5 16.5 10.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+  <symbol id="waves" viewBox="0 0 400 160" preserveAspectRatio="none"><path d="M0 40C70 0 150 20 210 70s120 60 190 30v60H0Z" fill="#ece3f8"/><path d="M0 90c60-30 120-10 190 25s140 20 210-40v85H0Z" fill="#fde4d6" opacity=".8"/><path d="M0 105c50-20 110-15 160 15s70 40 120 40H0Z" fill="#e3d6f5" opacity=".7"/></symbol>
+</svg>
+
+<div class="auth">
+  <!-- Painel decorativo (só no computador) -->
+  <aside class="auth-art" aria-hidden="true">
+    <span class="brand"><span class="brand-mark">Aa</span><span data-app-name>Sala de Inglês</span></span>
+    <div class="art-copy">
+      <h2>Seu inglês,<br>um passo por dia.</h2>
+      <p>Homework, conteúdos e aulas em um só lugar.</p>
+      <div class="art-cards"><span><i></i>Homework</span><span><i></i>Conteúdos</span><span><i></i>Presença</span><span><i></i>Próximas aulas</span></div>
+    </div>
+    <div class="waves"><svg><use href="#waves"/></svg></div>
+  </aside>
+
+  <main class="auth-main">
+    <span class="brand"><span class="brand-mark">Aa</span><span data-app-name>Sala de Inglês</span></span>
+
+    <!-- ========== 1. ENTRAR ========== -->
+    <section class="view" id="v-login">
+      <h1 class="auth-title">Bem-vindo(a)!</h1>
+      <p class="auth-sub">Entre para continuar praticando.</p>
+
+      <form class="form" id="f-login" novalidate>
+        <div class="field">
+          <label for="l-email">E-mail</label>
+          <input class="input" id="l-email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="l-pass">Senha</label>
+          <div class="input-wrap">
+            <input class="input" id="l-pass" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+            <button class="peek" type="button" aria-label="Mostrar senha" data-peek="l-pass"><svg><use href="#i-eye"/></svg></button>
+          </div>
+        </div>
+        <div class="row-between"><button class="text-link" type="button" data-go="v-forgot">Esqueci minha senha</button></div>
+        <div class="alert err" id="a-login" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Entrar</button>
+      </form>
+
+      <div class="divider" style="margin-top:26px">ou</div>
+      <button class="first-access" type="button" data-go="v-check" style="margin-top:14px">
+        <span class="bubble peach"><svg><use href="#i-key"/></svg></span>
+        <span><b>Primeiro acesso</b><small>Ative sua conta com o convite da escola</small></span>
+        <svg class="chev"><use href="#i-chev"/></svg>
+      </button>
+
+      <div class="demo-box" id="demo-box" hidden>
+        <p><b>Modo demonstração.</b> O Supabase ainda não foi configurado em <code>js/config.js</code>. Veja as telas:</p>
+        <div class="btns">
+          <button class="btn btn-ghost" type="button" data-demo="aluno">Área do aluno</button>
+          <button class="btn btn-ghost" type="button" data-demo="professora">Área da professora</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2. PRIMEIRO ACESSO — conferência ========== -->
+    <section class="view" id="v-check" hidden>
+      <button class="back" type="button" data-go="v-login"><svg><use href="#i-back"/></svg>Voltar</button>
+      <div class="steps" aria-hidden="true"><i class="on"></i><i></i></div>
+      <div class="step-label">Passo 1 de 2</div>
+      <h1 class="auth-title">Primeiro acesso</h1>
+      <p class="auth-sub">Use o e-mail e a data de nascimento informados à escola.</p>
+
+      <form class="form" id="f-check" novalidate>
+        <div class="field">
+          <label for="c-email">E-mail</label>
+          <input class="input" id="c-email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="c-birth">Data de nascimento</label>
+          <input class="input" id="c-birth" type="date" min="1920-01-01" required>
+        </div>
+        <div class="alert err" id="a-check" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Conferir meus dados</button>
+      </form>
+    </section>
+
+    <!-- ========== 3. PRIMEIRO ACESSO — cadastro ========== -->
+    <section class="view" id="v-signup" hidden>
+      <button class="back" type="button" data-go="v-check"><svg><use href="#i-back"/></svg>Voltar</button>
+      <div class="steps" aria-hidden="true"><i class="on"></i><i class="on"></i></div>
+      <div class="step-label">Passo 2 de 2</div>
+      <h1 class="auth-title">Tudo certo! 🎉</h1>
+      <p class="auth-sub">Agora complete seu cadastro.</p>
+
+      <form class="form" id="f-signup" novalidate>
+        <div class="field">
+          <label for="s-email">E-mail</label>
+          <input class="input" id="s-email" type="email" readonly tabindex="-1" style="background:var(--lav-2);color:var(--ink-2)">
+        </div>
+        <div class="field">
+          <label for="s-name">Nome completo</label>
+          <input class="input" id="s-name" type="text" autocomplete="name" placeholder="Como você quer ser chamado(a)" required>
+        </div>
+        <div class="field">
+          <label for="s-phone">Celular (WhatsApp)</label>
+          <input class="input" id="s-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000">
+        </div>
+        <div class="field">
+          <label for="s-pass">Crie uma senha</label>
+          <div class="input-wrap">
+            <input class="input" id="s-pass" type="password" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" minlength="8" required>
+            <button class="peek" type="button" aria-label="Mostrar senha" data-peek="s-pass"><svg><use href="#i-eye"/></svg></button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="s-pass2">Confirme a senha</label>
+          <input class="input" id="s-pass2" type="password" autocomplete="new-password" placeholder="Repita a senha" required>
+        </div>
+        <div class="alert err" id="a-signup" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Criar minha conta</button>
+      </form>
+    </section>
+
+    <!-- ========== 4. CONFIRMAR E-MAIL ========== -->
+    <section class="view" id="v-confirm" hidden>
+      <div class="success-mark"><svg><use href="#i-mail"/></svg></div>
+      <h1 class="auth-title">Confira seu e-mail</h1>
+      <p class="auth-sub">Enviamos um link de confirmação para <b id="confirm-email"></b>. Depois de confirmar, é só entrar.</p>
+      <button class="btn btn-primary" type="button" data-go="v-login">Ir para o login</button>
+    </section>
+
+    <!-- ========== 5. ESQUECI A SENHA ========== -->
+    <section class="view" id="v-forgot" hidden>
+      <button class="back" type="button" data-go="v-login"><svg><use href="#i-back"/></svg>Voltar</button>
+      <h1 class="auth-title">Esqueceu a senha?</h1>
+      <p class="auth-sub">Enviaremos um link para você criar uma nova.</p>
+      <form class="form" id="f-forgot" novalidate>
+        <div class="field">
+          <label for="r-email">E-mail</label>
+          <input class="input" id="r-email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+        </div>
+        <div class="alert" id="a-forgot" role="alert"></div>
+        <button class="btn btn-primary" type="submit">Enviar link</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="waves"><svg><use href="#waves"/></svg></div>
+</div>
+
+<script type="module" src="js/login.js"></script>
+</body>
+</html>
